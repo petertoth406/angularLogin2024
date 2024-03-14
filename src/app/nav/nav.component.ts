@@ -10,7 +10,13 @@ import { LoginService } from '../login/login.service';
 export class NavComponent implements OnInit {
 
   @Input()
-  navButtons: any[] = [];
+  navButtons: NavButton[] = [
+    {label: "Home", path: "home"},
+    {label: "Swapi", path: "swapi"},
+    {label: "Users", path: "users"},
+    {label: "Product", path: "newProduct"},
+    {label: "LogOut", path: null}
+  ];
 
   constructor(
     private router: Router,
@@ -18,19 +24,30 @@ export class NavComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    for(let button of this.navButtons){
+    /*for(let button of this.navButtons){
       console.log(button)
       let btn = {
         label: "Alma",
         path: "fruit"
       }
-    }
+    }*/
   }
 
-  navTo(path: string){
-    this.router.navigate([path])
+  navTo(path: string | undefined | null){
+    if(path)
+      this.router.navigate([path])
+    else{
+      this.logout()
+    }
   }
   logout(){
     this.loginService.logout()
   }
+
+  
+}
+
+type NavButton = {
+  label: string,
+  path: string | undefined | null
 }

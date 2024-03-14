@@ -17,6 +17,8 @@ import { NavComponent } from './nav/nav.component';
 import { SwapiComponent } from './swapi/swapi.component';
 import { UserComponent } from './user/user.component';
 import { UsersComponent } from './users/users.component';
+import { NewProductComponent } from './new-product/new-product.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { UsersComponent } from './users/users.component';
     NavComponent,
     SwapiComponent,
     UserComponent,
-    UsersComponent
+    UsersComponent,
+    NewProductComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { UsersComponent } from './users/users.component';
     BrowserAnimationsModule,
     MatSlideToggleModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

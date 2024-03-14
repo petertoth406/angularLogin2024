@@ -6,6 +6,7 @@ import { AuthGuard } from './auth.guard';
 import { SwapiComponent } from './swapi/swapi.component';
 import { UsersComponent } from './users/users.component';
 import { UserComponent } from './user/user.component';
+import { NewProductComponent } from './new-product/new-product.component';
 
 const routes: Routes = [
   
@@ -35,6 +36,11 @@ const routes: Routes = [
   {
     path: "users",
     component: UsersComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "newProduct",
+    component: NewProductComponent,
     canActivate: [AuthGuard]
   },
   /*{

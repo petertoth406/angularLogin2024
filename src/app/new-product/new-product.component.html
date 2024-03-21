@@ -1,15 +1,17 @@
 <form [formGroup]="form">
     <div class="mb-3">
         <label  for="name" class="form-label">Név</label>
-        <input formControlName="name" type="text" class="form-control" id="name" placeholder="Termék neve">
-    </div>
+        <div [className] = "invalidControls.includes('name') ? 'error' : ''">
+            <input   formControlName="name" type="text" class="form-control" id="name" placeholder="Termék neve">
+        </div>
+        </div>
     
     <div class="mb-3">
         <label for="name" class="form-label">Ár</label>
-        <input formControlName="price" type="number" class="form-control" id="name" placeholder="Ár">
+        <input [className] = "invalidControls.includes('price') ? 'error' : ''" formControlName="price" type="number" class="form-control" id="name" placeholder="Ár">
     </div>
     <label for="category" class="form-label">Kategória</label>
-    <select id="category" class="form-select" aria-label="Kategória">
+    <select formControlName="category" id="category" class="form-select" aria-label="Kategória">
         <option selected disabled>Open this select menu</option>
         <option value="electronics">Elektronikai cikk</option>
         <option value="clothes">Ruha</option>
@@ -17,7 +19,7 @@
       </select>
     <div class="mb-3">
     <label for="description" class="form-label">Leírás</label>
-    <textarea class="form-control" id="description" rows="3"></textarea>
+    <textarea formControlName="description" class="form-control" id="description" rows="3"></textarea>
     </div>
     <button (click)="click()">Ok</button>
 </form>
